@@ -4,12 +4,12 @@
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package alpapone-child
+ * @package asap-child
  */
 
 // Enqueue parent and child theme styles
-add_action( 'wp_enqueue_scripts', 'alpapone_child_enqueue_styles' );
-function alpapone_child_enqueue_styles() {
+add_action( 'wp_enqueue_scripts', 'asap_child_enqueue_styles' );
+function asap_child_enqueue_styles() {
     // First enqueue the parent theme's styles
     // Obtain the full path of the parent theme's CSS file
     $parent_main_style_path = get_template_directory() . '/assets/css/main.min.css';
@@ -43,10 +43,10 @@ function alpapone_child_enqueue_styles() {
     
     // Then enqueue the child theme's style.css
     wp_enqueue_style(
-        'alpapone-child-style',
+        'asap-child-style',
         get_stylesheet_uri(),
-        array('asap-parent-style'), // Make sure child theme styles load after parent
-        wp_get_theme()->get('Version') // Use version from style.css
+        array('asap-parent-style'),
+        wp_get_theme()->get('Version')
     );
     
     // Add Google Fonts for Josefin Sans and Poppins
