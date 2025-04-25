@@ -1,16 +1,25 @@
 <?php
+/**
+ * Al Papone Child Theme functions and definitions
+ *
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ *
+ * @package alpapone-child
+ */
 
-add_action( 'wp_enqueue_scripts', 'asap_child_enqueue_styles' );
-function asap_child_enqueue_styles() {
-    // Obtener la ruta completa del archivo CSS del tema padre
+// Enqueue parent and child theme styles
+add_action( 'wp_enqueue_scripts', 'alpapone_child_enqueue_styles' );
+function alpapone_child_enqueue_styles() {
+    // First enqueue the parent theme's styles
+    // Obtain the full path of the parent theme's CSS file
     $parent_main_style_path = get_template_directory() . '/assets/css/main.min.css';
     $parent_home_style_path = get_template_directory() . '/assets/css/home.min.css';
     
-    // Obtener la versión dinámica basada en la fecha de modificación del archivo
-    $parent_main_style_version = filemtime($parent_main_style_path);
-    $parent_home_style_version = filemtime($parent_home_style_path);
+    // Get dynamic version based on file modification date
+    $parent_main_style_version = file_exists($parent_main_style_path) ? filemtime($parent_main_style_path) : '1.0';
+    $parent_home_style_version = file_exists($parent_home_style_path) ? filemtime($parent_home_style_path) : '1.0';
     
-    // Encolar estilos del tema padre con versión dinámica
+    // Enqueue parent theme styles with dynamic version
     wp_enqueue_style( 
         'asap-parent-style', 
         get_template_directory_uri() . '/assets/css/main.min.css', 
@@ -18,7 +27,9 @@ function asap_child_enqueue_styles() {
         $parent_main_style_version
     );
 
-    if (get_theme_mod('asap_enable_newspaper_design', false) && 
+    // Conditionally add newspaper design if that feature is enabled
+    if (function_exists('get_theme_mod') && 
+        get_theme_mod('asap_enable_newspaper_design', false) && 
         (is_home() || is_category() || is_tag() || is_author() || 
         (is_single() || is_page()) && get_post_meta(get_the_ID(), 'asap_add_news_css', true) === "1")) {
         $design_type = get_theme_mod('asap_home_design_type', 1);
@@ -30,6 +41,21 @@ function asap_child_enqueue_styles() {
         );
     }
     
+    // Then enqueue the child theme's style.css
+    wp_enqueue_style(
+        'alpapone-child-style',
+        get_stylesheet_uri(),
+        array('asap-parent-style'), // Make sure child theme styles load after parent
+        wp_get_theme()->get('Version') // Use version from style.css
+    );
+    
+    // Add Google Fonts for Josefin Sans and Poppins
+    wp_enqueue_style(
+        'alpapone-google-fonts',
+        'https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Poppins:wght@400;500;600&display=swap',
+        array(),
+        null
+    );
 }
 
-?>
+// Add any additional theme functions below
