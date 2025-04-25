@@ -8,93 +8,422 @@ Author URI: https://asaptheme.com
 Template: asap
 */
 
-/* Hero Section */
-.hero-section {
-    padding: 4rem 2rem;
-    text-align: center;
-    background-color: #f8f9fa;
-    margin-bottom: 2rem;
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Art Deco Variables */
+:root {
+    --color-dark-brown: #492d17;
+    --color-gold: #cda457;
+    --color-medium-brown: #796a52;
+    --color-beige: #f4dda2;
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --font-heading: 'Josefin Sans', sans-serif;
+    --font-body: 'Poppins', sans-serif;
 }
 
-.hero-title {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
-    color: #333;
+/* Global Styles */
+body {
+    font-family: var(--font-body);
+    color: var(--color-dark-brown);
+    background-color: var(--color-white);
+    line-height: 1.6;
 }
 
-.hero-text {
-    font-size: 1.25rem;
-    max-width: 800px;
-    margin: 0 auto 2rem;
-    color: #666;
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
 }
 
-.hero-button .wp-block-button__link {
-    background-color: #007bff;
-    color: white;
-    padding: 0.75rem 2rem;
+/* Art Deco Pattern Backgrounds */
+.bg--deco-pattern {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23cda457" d="M0,0 L100,0 L100,100 L0,100 Z" fill-opacity="0.05"/><path fill="%23492d17" d="M0,0 L50,0 L50,50 L0,50 Z" fill-opacity="0.05"/><path fill="%23492d17" d="M50,50 L100,50 L100,100 L50,100 Z" fill-opacity="0.05"/></svg>');
+    background-repeat: repeat;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
     border-radius: 4px;
+    text-decoration: none;
     font-weight: 600;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
 }
 
-.hero-button .wp-block-button__link:hover {
-    background-color: #0056b3;
+.btn--gold {
+    background-color: var(--color-gold);
+    color: var(--color-dark-brown);
+    border: 2px solid var(--color-gold);
 }
 
-/* Features Section */
-.features-section {
-    padding: 4rem 2rem;
-    background-color: white;
+.btn--gold:hover {
+    background-color: transparent;
+    color: var(--color-gold);
 }
 
-.features-title {
+/* Section Titles */
+.section-title {
     font-size: 2.5rem;
-    margin-bottom: 3rem;
-    color: #333;
+    margin-bottom: 2rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
 }
 
-.features-columns {
+.section-title--gold {
+    color: var(--color-gold);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--color-gold);
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: var(--color-dark-brown);
+    color: var(--color-white);
+    overflow: hidden;
+}
+
+.hero--artdeco {
+    background-image: linear-gradient(rgba(73, 45, 23, 0.9), rgba(73, 45, 23, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23cda457" d="M0,0 L100,0 L100,100 L0,100 Z" fill-opacity="0.1"/><path fill="%23f4dda2" d="M0,0 L50,0 L50,50 L0,50 Z" fill-opacity="0.05"/><path fill="%23f4dda2" d="M50,50 L100,50 L100,100 L50,100 Z" fill-opacity="0.05"/></svg>');
+    background-repeat: repeat;
+}
+
+.hero__content {
+    max-width: 800px;
+    z-index: 1;
+}
+
+.hero__title {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero__subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-beige);
+}
+
+.hero__hours {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1.5rem;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+    display: inline-block;
+}
+
+.hours__title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-gold);
+}
+
+.hours__text {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.hero__cta {
+    margin-top: 2rem;
+}
+
+/* About Section */
+.about {
+    padding: 5rem 2rem;
+    background-color: var(--color-white);
+}
+
+.about--artdeco {
+    position: relative;
+    background-color: var(--color-beige);
+}
+
+.about__content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about__text {
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.about__location {
+    background-color: var(--color-dark-brown);
+    color: var(--color-white);
+    padding: 2rem;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.location__title {
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+}
+
+.location__address, .location__phone {
+    margin-bottom: 0.5rem;
+}
+
+/* Menu Section */
+.menu {
+    padding: 5rem 2rem;
+    background-color: var(--color-white);
+}
+
+.menu--artdeco {
+    background-color: var(--color-dark-brown);
+    color: var(--color-white);
+}
+
+.menu__categories {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.menu__category {
+    margin-bottom: 3rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 4px;
+}
+
+.category__title {
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1.8rem;
+}
+
+.category__description {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--color-beige);
+}
+
+.category__items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
 }
 
-.features-columns .wp-block-column {
-    padding: 2rem;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    transition: transform 0.3s;
+.menu__item {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    border-radius: 4px;
+    transition: transform 0.3s ease;
 }
 
-.features-columns .wp-block-column:hover {
+.menu__item:hover {
     transform: translateY(-5px);
 }
 
-.features-columns h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #333;
+.item__name {
+    color: var(--color-gold);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
 }
 
-.features-columns p {
-    color: #666;
-    line-height: 1.6;
+.item__description {
+    margin-bottom: 1rem;
+    color: var(--color-beige);
+}
+
+.item__price {
+    font-weight: 600;
+    color: var(--color-white);
+    font-size: 1.2rem;
+}
+
+/* Order Section */
+.order {
+    padding: 5rem 2rem;
+    background-color: var(--color-white);
+}
+
+.order--artdeco {
+    background-color: var(--color-beige);
+}
+
+.order__options {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.order__option {
+    padding: 2rem;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.order__option--primary {
+    background-color: var(--color-dark-brown);
+    color: var(--color-white);
+}
+
+.order__option--secondary {
+    background-color: var(--color-medium-brown);
+    color: var(--color-white);
+}
+
+.option__title {
+    color: var(--color-gold);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.option__description {
+    margin-bottom: 2rem;
+}
+
+.delivery__partners {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.partner {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 5rem 2rem;
+    background-color: var(--color-white);
+}
+
+.testimonials--artdeco {
+    background-color: var(--color-dark-brown);
+    color: var(--color-white);
+}
+
+.testimonials__slider {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.testimonial {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.testimonial__text {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: var(--color-beige);
+}
+
+.testimonial__author {
+    font-weight: 600;
+    color: var(--color-gold);
+}
+
+/* Contact Section */
+.contact {
+    padding: 5rem 2rem;
+    background-color: var(--color-white);
+}
+
+.contact--artdeco {
+    background-color: var(--color-beige);
+}
+
+.contact__info {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.contact__item {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: var(--color-dark-brown);
+    color: var(--color-white);
+    border-radius: 4px;
+}
+
+.contact__label {
+    color: var(--color-gold);
+    margin-bottom: 0.5rem;
+}
+
+.contact__value {
+    font-size: 1.1rem;
+}
+
+.contact__map {
+    max-width: 1000px;
+    margin: 0 auto;
+    height: 400px;
+    background-color: var(--color-medium-brown);
+    border-radius: 4px;
 }
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-    .hero-title {
-        font-size: 2.5rem;
+    .hero__title {
+        font-size: 3rem;
     }
     
-    .hero-text {
-        font-size: 1.1rem;
+    .hero__subtitle {
+        font-size: 1.2rem;
     }
     
-    .features-title {
+    .hours__text {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
         font-size: 2rem;
     }
     
-    .features-columns .wp-block-column {
-        padding: 1.5rem;
+    .order__options {
+        grid-template-columns: 1fr;
+    }
+    
+    .category__items {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact__info {
+        grid-template-columns: 1fr;
     }
 }
