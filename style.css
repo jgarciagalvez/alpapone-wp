@@ -7,3 +7,94 @@ Author: Asap Theme
 Author URI: https://asaptheme.com
 Template: asap
 */
+
+/* Hero Section */
+.hero-section {
+    padding: 4rem 2rem;
+    text-align: center;
+    background-color: #f8f9fa;
+    margin-bottom: 2rem;
+}
+
+.hero-title {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.hero-text {
+    font-size: 1.25rem;
+    max-width: 800px;
+    margin: 0 auto 2rem;
+    color: #666;
+}
+
+.hero-button .wp-block-button__link {
+    background-color: #007bff;
+    color: white;
+    padding: 0.75rem 2rem;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.hero-button .wp-block-button__link:hover {
+    background-color: #0056b3;
+}
+
+/* Features Section */
+.features-section {
+    padding: 4rem 2rem;
+    background-color: white;
+}
+
+.features-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: #333;
+}
+
+.features-columns {
+    gap: 2rem;
+}
+
+.features-columns .wp-block-column {
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.features-columns .wp-block-column:hover {
+    transform: translateY(-5px);
+}
+
+.features-columns h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.features-columns p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-text {
+        font-size: 1.1rem;
+    }
+    
+    .features-title {
+        font-size: 2rem;
+    }
+    
+    .features-columns .wp-block-column {
+        padding: 1.5rem;
+    }
+}

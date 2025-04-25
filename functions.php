@@ -32,4 +32,7 @@ function asap_child_enqueue_styles() {
     
 }
 
+// Include custom block patterns
+require_once get_stylesheet_directory() . '/inc/block-patterns/homepage-patterns.php';
+
 ?>
